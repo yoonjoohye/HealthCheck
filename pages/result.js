@@ -44,8 +44,15 @@ const Intro=styled.figcaption`
 `
 const Img=styled.img`
   margin-bottom:1em;
-  width:300px; 
-  height:160px;
+  width:100%; 
+  height:200px;
+  &:empty{
+    background-color:#eeeeee;
+    background-image:url('/hospital.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:20%;
+  }
 `
 const Result = () => {
     const [hospital, setHospital] = useState([]);
@@ -105,12 +112,12 @@ const Result = () => {
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
             <Layout>
-                <Title><img css={css`width:2em; height:2em; margin-right:0.5em;`} src="/hospital.svg" alt="데일리헬스체크-병원이미지"/>이 병원에 가보시는건 어떤가요?</Title>
+                <Title><img css={css`width:2em; height:2em; margin-right:0.5em;`} src="/kit.svg" alt="데일리헬스체크-병원이미지"/>이 병원에 가보시는건 어떤가요?</Title>
                 <Grid recommend={true} css={css`margin-bottom:3em; min-height:100vh;`}>
                     {
                         hospital.map((item, idx) => {
                             return (
-                                <HospitalBox key={idx} href={`https://www.goodoc.co.kr/${item.url}`} target="_blank">
+                                <HospitalBox key={idx} href={`https://www.goodoc.co.kr${item.url}`} target="_blank">
                                     <figure>
                                             <Name>{item.name}</Name>
                                             <Location>
@@ -118,8 +125,8 @@ const Result = () => {
                                                 {item.location}
                                             </Location>
                                         {
-                                            item.img &&
-                                            <Img src={item.img}/>
+                                            item.img ?
+                                            <Img src={item.img}/>: <Img/>
                                         }
                                         {
                                             item.img &&

@@ -28,10 +28,14 @@ const FakeRadioBox=styled.label`
 cursor:pointer;
     display:block;
   ${MarkdownBase()};
- padding:0.3em 1em;
+ padding:0.5em 1em;
  margin-bottom:0.5em;
   ${props=>props.checked ?
     css`
+        background-image: url('/check_white.svg');
+        background-size:5%;
+        background-repeat: no-repeat;
+        background-position: calc( 100% - 1em );
          background-color:${Color.blue};
   color:${Color.white};
 
@@ -155,7 +159,7 @@ const Index = () => {
                         {
                             page === 3 &&
                             <>
-                                <Title>얼마나 아프시나요?</Title>
+                                <Title>얼마나 아픈가요?</Title>
                                 <Contents>
                                     <li>
                                         <RadioBox type="radio" name="painLevel" value={1} checked={painLevel==1}  onChange={changePainLevel} id="verybad"/>
