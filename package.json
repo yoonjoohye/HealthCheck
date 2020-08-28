@@ -11,9 +11,14 @@
     "@emotion/core": "^10.0",
     "@emotion/css": "^10.0.27",
     "@emotion/styled": "^10.0.27",
+    "axios": "^0.20.0",
+    "cheerio": "^1.0.0-rc.3",
     "next": "9.4.4",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "yarn": "^1.22.4"
+  },
+  "devDependencies": {
+    "@emotion/babel-preset-css-prop": "^10.0.27"
   }
 }
