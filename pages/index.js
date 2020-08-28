@@ -1,209 +1,125 @@
 import Head from 'next/head'
+import Link from 'next/link'
+import Layout from "../templates/Layout";
+import Modal from "../templates/modal/Modal";
+import React, {useState} from "react";
+import {Button} from "../assets/style/Button.style";
 
-export default function Home() {
-  return (
-    <div className="container">
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+const Index = () => {
+    const [openModal, setOpenModal] = useState(true);
+    const [painType,setPainType]=useState(null);
+    const [painLevel,setPainLevel]=useState(null);
+    const [page, setPage] = useState(1);
 
-      <main>
-        <h1 className="title">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className="description">
-          Get started by editing <code>pages/index.js</code>
-        </p>
-
-        <div className="grid">
-          <a href="https://nextjs.org/docs" className="card">
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className="card">
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className="card"
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="card"
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className="logo" />
-        </a>
-      </footer>
-
-      <style jsx>{`
-        .container {
-          min-height: 100vh;
-          padding: 0 0.5rem;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
+    const onNegative = (page) => {
+        if (page === 1) {
+            setOpenModal(false);
         }
-
-        main {
-          padding: 5rem 0;
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
+        if (page === 2) {
+            setPage(1);
         }
-
-        footer {
-          width: 100%;
-          height: 100px;
-          border-top: 1px solid #eaeaea;
-          display: flex;
-          justify-content: center;
-          align-items: center;
+        if (page === 3) {
+            setPage(2);
         }
-
-        footer img {
-          margin-left: 0.5rem;
+    }
+    const onPositive = (page) => {
+        if (page === 1) {
+            setPage(2);
         }
-
-        footer a {
-          display: flex;
-          justify-content: center;
-          align-items: center;
+        if (page === 2) {
+            setPage(3);
         }
-
-        a {
-          color: inherit;
-          text-decoration: none;
+        if (page === 3) {
+            console.log(painType);
+            console.log(painLevel);
+            location.href='/result';
         }
+    }
+    const changePainType=(e)=>{
+        let {value}=e.target;
+        setPainType(value);
+    }
 
-        .title a {
-          color: #0070f3;
-          text-decoration: none;
-        }
+    const changePainLevel=(e)=>{
+        let {value}=e.target;
+        setPainLevel(value);
+    }
 
-        .title a:hover,
-        .title a:focus,
-        .title a:active {
-          text-decoration: underline;
-        }
 
-        .title {
-          margin: 0;
-          line-height: 1.15;
-          font-size: 4rem;
-        }
-
-        .title,
-        .description {
-          text-align: center;
-        }
-
-        .description {
-          line-height: 1.5;
-          font-size: 1.5rem;
-        }
-
-        code {
-          background: #fafafa;
-          border-radius: 5px;
-          padding: 0.75rem;
-          font-size: 1.1rem;
-          font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-        }
-
-        .grid {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-wrap: wrap;
-
-          max-width: 800px;
-          margin-top: 3rem;
-        }
-
-        .card {
-          margin: 1rem;
-          flex-basis: 45%;
-          padding: 1.5rem;
-          text-align: left;
-          color: inherit;
-          text-decoration: none;
-          border: 1px solid #eaeaea;
-          border-radius: 10px;
-          transition: color 0.15s ease, border-color 0.15s ease;
-        }
-
-        .card:hover,
-        .card:focus,
-        .card:active {
-          color: #0070f3;
-          border-color: #0070f3;
-        }
-
-        .card h3 {
-          margin: 0 0 1rem 0;
-          font-size: 1.5rem;
-        }
-
-        .card p {
-          margin: 0;
-          font-size: 1.25rem;
-          line-height: 1.5;
-        }
-
-        .logo {
-          height: 1em;
-        }
-
-        @media (max-width: 600px) {
-          .grid {
-            width: 100%;
-            flex-direction: column;
-          }
-        }
-      `}</style>
-
-      <style jsx global>{`
-        html,
-        body {
-          padding: 0;
-          margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
-        }
-
-        * {
-          box-sizing: border-box;
-        }
-      `}</style>
-    </div>
-  )
+    return (
+        <>
+            <Head>
+                <title>데일리 헬스체크</title>
+                <link rel="icon" href="/favicon.ico"/>
+            </Head>
+            <Layout>
+                {
+                    openModal &&
+                    <Modal>
+                        {
+                            page === 1 &&
+                            <>
+                                <h3>데일리 헬스체크</h3>
+                                <section>아픈 곳이 있나요?</section>
+                                <section>
+                                    <Button isEmpty={true} onClick={()=>onNegative(page)}>아니요, 괜찮아요</Button>
+                                    <Button onClick={()=>onPositive(page)}>네, 그런것같아요</Button>
+                                </section>
+                            </>
+                        }
+                        {
+                            page === 2 &&
+                            <>
+                                <h3>어디가 아프신가용?</h3>
+                                <ul>
+                                    <li>
+                                        <label htmlFor="a"><input type="radio" value={1} name="painType" onChange={changePainType} id="a"/>인후통이 있음.</label>
+                                    </li>
+                                    <li>
+                                        <label htmlFor="b"><input type="radio" value={2} name="painType" onChange={changePainType} id="b"/>두통이 있음.</label>
+                                    </li>
+                                    <li>
+                                        <label htmlFor="c"><input type="radio" value={3} name="painType" onChange={changePainType} id="c"/>복통이 있음.</label>
+                                    </li>
+                                    <li>
+                                        <label htmlFor="d"><input type="radio" value={4} name="painType" onChange={changePainType} id="d"/>관절이 아픔.</label>
+                                    </li>
+                                    <li>
+                                        <label htmlFor="e"><input type="radio" value={5} name="painType" onChange={changePainType} id="e"/>치아가 아픔.</label>
+                                    </li>
+                                    <li>
+                                        <label htmlFor="f"><input type="radio" value={6} name="painType" onChange={changePainType} id="f"/>피부에 뭐가 났음.</label>
+                                    </li>
+                                    <li>
+                                        <label htmlFor="g"><input type="radio" value={7} name="painType" onChange={changePainType} id="g"/>잘 모르겠음.</label>
+                                    </li>
+                                </ul>
+                                <section>
+                                    <Button isEmpty={true} onClick={()=>onNegative(page)}>이전</Button>
+                                    <Button onClick={()=>onPositive(page)}>다음</Button>
+                                </section>
+                            </>
+                        }
+                        {
+                            page === 3 &&
+                            <>
+                                <h3>얼마나 아프시나요?</h3>
+                                <ul>
+                                    <li><label htmlFor="verybad"><input type="radio" name="painLevel" value={1} onChange={changePainLevel} id="verybad"/>생활에 무리가 갈 정도의 아픔</label></li>
+                                    <li><label htmlFor="bad"><input type="radio" name="painLevel" value={2} onChange={changePainLevel} id="bad"/>생활에 무리가 없지만, 신경 쓰일 정도의 아픔</label></li>
+                                    <li><label htmlFor="good"><input type="radio" name="painLevel" value={3} onChange={changePainLevel} id="good"/>가끔 신경 쓰일 정도의 아픔</label></li>
+                                    <li><label htmlFor="verygood"><input type="radio" name="painLevel" value={4} onChange={changePainLevel} id="verygood"/>신경 안 쓸 정도의 아픔</label></li>
+                                </ul>
+                                <section>
+                                    <Button isEmpty={true} onClick={()=>onNegative(page)}>이전</Button>
+                                    <Button onClick={()=>onPositive(page)}>다음</Button>
+                                </section>
+                            </>
+                        }
+                    </Modal>
+                }
+            </Layout>
+        </>
+    )
 }
+export default Index;
