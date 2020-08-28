@@ -1,5 +1,6 @@
 import {Global, css} from '@emotion/core';
 import * as React from "react";
+import {Color} from "./Color.style";
 
 export const GlobalStyle = () => (
     <Global styles={css`
@@ -24,17 +25,19 @@ export const GlobalStyle = () => (
       font-family:  sans-serif;
       font-size: 16px;
       line-height: 1.5;
-
+      outline:none;
     }
     
     input {
       font-family:  sans-serif;
       font-size: 16px;
       line-height: 1.5;
+      outline:none;
     }
     button{
       border:0;
       cursor:pointer;
+      outline:none;
     }
     li {
       margin:0;
@@ -48,6 +51,7 @@ export const GlobalStyle = () => (
     }
     
     a {
+      color:${Color.black};
       text-decoration: none;
     }
     

@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from "@emotion/styled";
-import {Color} from "../../assets/style/Color.style";
+import {Color} from "../../public/style/Color.style";
+import {media} from "../../public/style/Media.style";
 
 const ModalSection=styled.div`
   position:fixed;
@@ -23,11 +24,11 @@ const ModalBox=styled.div`
   display:flex;
   flex-direction:column;
   justify-content: space-between;
-
+  border-radius: 0.3em;
+  ${media.sm`width:300px;`}
 `
 
 const Modal = ({children}) => {
-
     return (
         <ModalSection>
             <ModalBox>
