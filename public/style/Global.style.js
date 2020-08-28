@@ -20,7 +20,10 @@ export const GlobalStyle = () => (
       font-weight: 400;
       line-height: 1.5;
     }
-    
+    img{
+      border:none;
+      outline:none;
+    }
     textarea {
       font-family:  sans-serif;
       font-size: 16px;

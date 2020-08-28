@@ -46,13 +46,16 @@ const Img=styled.img`
   margin-bottom:1em;
   width:100%; 
   height:200px;
-  &:empty{
-    background-color:#eeeeee;
-    background-image:url('/hospital.svg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size:20%;
-  }
+`
+const DefaultImg=styled.div`
+  width:100%; 
+  height:200px;
+  margin-bottom:1em;
+  background-color:#eee;
+  background-image:url('/hospital.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size:20%;
 `
 const Result = () => {
     const [hospital, setHospital] = useState([]);
@@ -126,7 +129,7 @@ const Result = () => {
                                             </Location>
                                         {
                                             item.img ?
-                                            <Img src={item.img}/>: <Img/>
+                                            <Img src={item.img}/>: <DefaultImg/>
                                         }
                                         {
                                             item.img &&
