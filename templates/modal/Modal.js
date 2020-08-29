@@ -18,14 +18,14 @@ const ModalSection=styled.div`
 const ModalBox=styled.div`
   box-shadow: 0 0 10px rgba(0,0,0,0.13);
   background-color:${Color.white};
-  padding:1em;
+  padding:1.5em;
   width:500px;
-  min-height:300px;
+  min-height:250px;
   display:flex;
   flex-direction:column;
   justify-content: space-between;
   border-radius: 0.3em;
-  ${media.sm`width:300px;`}
+  ${media.sm`width:80%;`}
 `
 
 const Modal = ({children}) => {
