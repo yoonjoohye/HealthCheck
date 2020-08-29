@@ -1,8 +1,18 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 데일리 자가검진
+하루에 한번씩 자신의 건강 상태를 체크하면서, 이상이 있을시, 그에 해당하는 병원을 추천해주는 서비스임.
 
-## Getting Started
+## 만들게 된 이유
+감기같은 가벼운 질병을 무심코 넘기다가 만성 비염에 걸린적이 있음. 하루에 한번 자신의 건강을 체크하면서 병원을 가야할지 고민하는 자신에게 명확한 답을 주기 위해 만들게 됨.
 
-First, run the development server:
+## Skill
+> React, Next.js, cheerio, emotion
+
+## 어떻게 만들었는가?
+- 굿닥의 병원 정보를 크롤링해서 해당 질병에 맞는 병원을 추천을 해줌.
+- 병원에 가지 않는 사람들에게 설문조사를 돌려 답변에 대해서 병원에 가도록 유도하는 메세지를 넣음.
+- 가볍게 검사할 수 있도록 모달로 보여줌.
+
+## Install
 
 ```bash
 npm run dev
@@ -10,21 +20,14 @@ npm run dev
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ScreenShot
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+![image](https://user-images.githubusercontent.com/26542929/91632056-35728100-ea19-11ea-9559-7b80f23dc4ba.png)
 
-## Learn More
+![image](https://user-images.githubusercontent.com/26542929/91632064-3e635280-ea19-11ea-9f6c-2d5398e4e086.png)
 
-To learn more about Next.js, take a look at the following resources:
+![image](https://user-images.githubusercontent.com/26542929/91632065-428f7000-ea19-11ea-93fd-222b8c3f375f.png)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+![image](https://user-images.githubusercontent.com/26542929/91632068-46bb8d80-ea19-11ea-8d8a-8662fa7e806f.png)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
