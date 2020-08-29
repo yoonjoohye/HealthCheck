@@ -20,7 +20,7 @@ const ModalBox=styled.div`
   background-color:${Color.white};
   padding:1.5em;
   width:500px;
-  min-height:250px;
+  min-height:300px;
   display:flex;
   flex-direction:column;
   justify-content: space-between;

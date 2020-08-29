@@ -68,7 +68,6 @@ cursor:pointer;
         background-position: calc( 100% - 1em );
          background-color:${Color.blue};
   color:${Color.white};
-
 ` :
     css` background-color:${Color.lightblue};
   color:${Color.blue};`
