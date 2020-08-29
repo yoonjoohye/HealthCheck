@@ -65,7 +65,7 @@ const Result = () => {
     const parseGooddoc = async () => {
         setLoading(true);
         try {
-            let res = await axios.get(`https://www.goodoc.co.kr/hospitals?department_id=${router.query.departmentId}&list_open=1`);
+            let res = await axios.get(`https://www.goodoc.co.kr/hospitals?department_id=${router.query.painType}&list_open=1`);
 
             if (res.status === 200) {
                 const $ = cheerio.load(res.data);
@@ -111,11 +111,25 @@ const Result = () => {
                     <Spinner/>
             }
             <Head>
-                <title>데일리 헬스체크 결과</title>
+                <title>데일리 자가건강 검진결과</title>
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
             <Layout>
-                <Title><img css={css`width:2em; height:2em; margin-right:0.5em;`} src="/kit.svg" alt="데일리헬스체크-병원이미지"/>이 병원에 가보시는건 어떤가요?</Title>
+                <Title>
+                    <img css={css`width:2em; height:2em; margin-right:0.5em;`} src="/kit.svg" alt="데일리헬스체크-병원이미지"/>
+                    {
+                        router.query.painLevel==1 && <>참지말고, 건강을 위해 병원에 꼭 방문해주세요.</>
+                    }
+                    {
+                        router.query.painLevel==2 && <>귀찮아도, 건강을 위해 병원에 꼭 방문해주세요.</>
+                    }
+                    {
+                        router.query.painLevel==3 && <>진료시간 얼마 걸리지 않아요. 이 병원은 어떤가요? </>
+                    }
+                    {
+                        router.query.painLevel==4 && <>이 병원에 가보시는건 어떤가요?</>
+                    }
+                </Title>
                 <Grid recommend={true} css={css`margin-bottom:3em; min-height:100vh;`}>
                     {
                         hospital.map((item, idx) => {
