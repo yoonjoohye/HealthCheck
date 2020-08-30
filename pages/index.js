@@ -21,9 +21,9 @@ const Progress = styled.div`
     width: 100%;
     display: block;
     ${props => props.step==0 ? 
-    css`content:'얼마 걸리지 않아요!';`: 
-    props.step==1 ? css`content:'정말 다 와가요!';`:
-        props.step===2 && css`content:'이제 마지막이에요!';`
+    css`content:'0/2';`: 
+    props.step==1 ? css`content:'1/2';`:
+        props.step===2 && css`content:'2/2';`
 };
   }
 `
@@ -150,7 +150,7 @@ const Index = () => {
                             {
                                 page === 1 &&
                                 <>
-                                    <Contents css={css`margin-bottom:20px;`}>오늘, 조금이라도 아프거나, 신경쓰인 부분이 있나요?</Contents>
+                                    <Contents css={css`margin-bottom:20px;`}>오늘, 조금이라도 아프거나 신경쓰이는 부분이 있나요?</Contents>
                                     <Grid css={css`margin-top:1em;`}>
                                         <Button enabled={true} isEmpty={true} onClick={() => onNegative(page)}>아니요, 전혀
                                             없어요</Button>
