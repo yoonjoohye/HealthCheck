@@ -16,7 +16,7 @@ const SpinnerSection=styled.div`
 const Spinner=()=>{
     return(
         <SpinnerSection>
-            <img css={css`height:3em;`} src="/spinner.gif"/>
+            <img css={css`height:3em;`} src="/images/spinner.gif"/>
         </SpinnerSection>
     )
 }

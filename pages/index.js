@@ -62,7 +62,7 @@ cursor:pointer;
  margin-bottom:0.5em;
   ${props => props.checked ?
     css`
-        background-image: url('/check_white.svg');
+        background-image: url('/images/check_white.svg');
         background-size:5%;
         background-repeat: no-repeat;
         background-position: calc( 100% - 1em );
@@ -118,7 +118,7 @@ const Index = () => {
         <>
             <Head>
                 <title>데일리 자가건강 검진</title>
-                <link rel="icon" href="/favicon.ico"/>
+                <link rel="icon" href="/images/favicon.ico"/>
             </Head>
             <Layout>
                 {
@@ -131,7 +131,7 @@ const Index = () => {
                                     page === 1 &&
                                     <Title>
                                         <img css={css`width:1.3em; height:1.3em; margin-right:0.5em;`}
-                                             src="/check.svg"/>10초만에 건강 체크하기
+                                             src="/images/check.svg"/>10초만에 건강 체크하기
                                     </Title>
                                 }
                                 {

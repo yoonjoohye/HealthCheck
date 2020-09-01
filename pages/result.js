@@ -112,11 +112,11 @@ const Result = () => {
             }
             <Head>
                 <title>데일리 자가건강 검진결과</title>
-                <link rel="icon" href="/favicon.ico"/>
+                <link rel="icon" href="/images/favicon.ico"/>
             </Head>
             <Layout>
                 <Title>
-                    <img css={css`width:2em; height:2em; margin-right:0.5em;`} src="/kit.svg" alt="데일리헬스체크-병원이미지"/>
+                    <img css={css`width:2em; height:2em; margin-right:0.5em;`} src="/images/kit.svg" alt="데일리헬스체크-병원이미지"/>
                     {
                         router.query.painLevel==1 && <>참지말고, 건강을 위해 병원에 꼭 방문해주세요.</>
                     }
@@ -138,7 +138,7 @@ const Result = () => {
                                     <figure>
                                             <Name>{item.name}</Name>
                                             <Location>
-                                                <img css={css`width:0.8em; height:0.8em;`} src="/location.svg" alt="데일리헬스체크-지도이미지"/>
+                                                <img css={css`width:0.8em; height:0.8em;`} src="/images/location.svg" alt="데일리헬스체크-지도이미지"/>
                                                 {item.location}
                                             </Location>
                                         {
